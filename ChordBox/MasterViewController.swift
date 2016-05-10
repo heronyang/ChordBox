@@ -19,8 +19,8 @@ class MasterViewController: UITableViewController {
 		
 		self.navigationItem.title = "All Chords"
 		
-		let infoButton = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: #selector(insertNewChordProgression(_:)))
-		let playButton = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: #selector(insertNewChordProgression(_:)))
+		let infoButton = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: #selector(insertTestChordProgression(_:)))
+		let playButton = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: #selector(insertTestChordProgression(_:)))
 		
 		self.navigationItem.leftBarButtonItem = infoButton
 		self.navigationItem.rightBarButtonItem = playButton
@@ -29,8 +29,11 @@ class MasterViewController: UITableViewController {
 		    let controllers = split.viewControllers
 		    self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
 		}
+		
+		loadDataFromFile()
+		
 	}
-
+	
 	override func viewWillAppear(animated: Bool) {
 		self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
 		super.viewWillAppear(animated)
@@ -40,11 +43,19 @@ class MasterViewController: UITableViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+	
+	func loadDataFromFile() {
+		
+	}
 
-	func insertNewChordProgression(sender: AnyObject) {
+	func insertTestChordProgression(sender: AnyObject) {
+		insertNewChordProgression()
+	}
+	
+	func insertNewChordProgression() {
 		chordProgressions.insert(ChordProgression(), atIndex: 0)
 		let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-		self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+		self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
 	}
 
 	// MARK: - Segues
