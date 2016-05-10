@@ -1,0 +1,6 @@
+framework module Pods_ChordBox {
+  umbrella header "Pods-ChordBox-umbrella.h"
+
+  export *
+  module * { export * }
+}

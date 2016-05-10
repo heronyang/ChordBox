@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftCSV
 
 class MasterViewController: UITableViewController {
 
@@ -45,7 +46,16 @@ class MasterViewController: UITableViewController {
 	}
 	
 	func loadDataFromFile() {
-		
+		do {
+			let fileLocation = NSBundle.mainBundle().pathForResource("chordData", ofType: "csv")!
+			
+			let csv = try CSV(name: fileLocation)
+			print(csv.header)
+			print(csv.rows)
+			print(csv.columns)
+		} catch {
+			print("error in reading data file");
+		}
 	}
 
 	func insertTestChordProgression(sender: AnyObject) {
