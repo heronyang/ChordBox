@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14A129AF1CE1896B0026B986 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A129AE1CE1896B0026B986 /* Chord.swift */; };
+		14A129B11CE18A020026B986 /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A129B01CE18A020026B986 /* ChordProgression.swift */; };
 		14A14C971CE176740043E54E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A14C961CE176740043E54E /* AppDelegate.swift */; };
 		14A14C991CE176740043E54E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A14C981CE176740043E54E /* MasterViewController.swift */; };
 		14A14C9B1CE176740043E54E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A14C9A1CE176740043E54E /* DetailViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14A129AE1CE1896B0026B986 /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
+		14A129B01CE18A020026B986 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
 		14A14C931CE176740043E54E /* ChordBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A14C961CE176740043E54E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14A14C981CE176740043E54E /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				14A14C9F1CE176740043E54E /* Assets.xcassets */,
 				14A14CA11CE176740043E54E /* LaunchScreen.storyboard */,
 				14A14CA41CE176740043E54E /* Info.plist */,
+				14A129AE1CE1896B0026B986 /* Chord.swift */,
+				14A129B01CE18A020026B986 /* ChordProgression.swift */,
 			);
 			path = ChordBox;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 			files = (
 				14A14C9B1CE176740043E54E /* DetailViewController.swift in Sources */,
 				14A14C991CE176740043E54E /* MasterViewController.swift in Sources */,
+				14A129B11CE18A020026B986 /* ChordProgression.swift in Sources */,
+				14A129AF1CE1896B0026B986 /* Chord.swift in Sources */,
 				14A14C971CE176740043E54E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,10 +264,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ChordBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.heron.ChordBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -267,10 +278,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ChordBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.heron.ChordBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -293,6 +307,7 @@
 				14A14CA91CE176740043E54E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

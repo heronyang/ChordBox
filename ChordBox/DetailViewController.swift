@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
 	@IBOutlet weak var detailDescriptionLabel: UILabel!
 
 
-	var detailItem: AnyObject? {
+	var detailItem: ChordProgression? {
 		didSet {
 		    // Update the view.
 		    self.configureView()
