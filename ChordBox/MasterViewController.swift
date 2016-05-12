@@ -56,7 +56,6 @@ class MasterViewController: UITableViewController {
 	}
 	
 	func parseRawDataToLocal(rawData: [Dictionary<String, String>]) {
-		print(rawData)
 		for rawDataChordProgression: Dictionary<String, String> in rawData {
 			insertNewChordProgression(ChordProgression(rawDataChordProgression: rawDataChordProgression))
 		}

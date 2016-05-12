@@ -23,14 +23,32 @@ class ChordProgression: CustomStringConvertible {
 	}
 	
 	init(rawDataChordProgression: Dictionary<String, String>) {
+		
 		amount = Int(rawDataChordProgression["amount"]!)!
 		unit = Float(rawDataChordProgression["unit"]!)!
-		print([amount, unit])
+		
 		for i in 1...16 {
 			let fieldName:String = "c" + String(i)
 			let rawDataChord:String = rawDataChordProgression[fieldName]!
-			chords.append(Chord(rawData: rawDataChord))
+			
+			if rawDataChord == "" {
+				break
+			}
+			
+			if isValidChordData(rawDataChord) {
+				chords.append(Chord(rawData: rawDataChord))
+			}
+			
 		}
+		
+	}
+	
+	func isValidChordData(rawDataCord: String) -> Bool {
+		return Helper.isMatchedForRegexInText(Constants.chordRegex, text: rawDataCord)
+	}
+	
+	func isContinueSign(rawDataCord: String) -> Bool {
+		return rawDataCord == "-"
 	}
 	
 }

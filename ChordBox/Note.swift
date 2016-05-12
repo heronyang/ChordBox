@@ -15,7 +15,7 @@ class Note: CustomStringConvertible {
 	let absoluteNumber: Int
 	let absoluteFlatAccidental: String
 	
-	var key: String = Constants.dfaultKey
+	var key: String = Constants.defaultKey
 	
 	var description: String {
 		get {

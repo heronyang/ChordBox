@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14302FA61CE1B5D900627562 /* chordData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 14302FA51CE1B5D900627562 /* chordData.csv */; };
+		145169931CE45DE2009A4AFD /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145169921CE45DE2009A4AFD /* Helper.swift */; };
 		14A129AF1CE1896B0026B986 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A129AE1CE1896B0026B986 /* Chord.swift */; };
 		14A129B11CE18A020026B986 /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A129B01CE18A020026B986 /* ChordProgression.swift */; };
 		14A14C971CE176740043E54E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A14C961CE176740043E54E /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		14302FA51CE1B5D900627562 /* chordData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chordData.csv; sourceTree = "<group>"; };
+		145169921CE45DE2009A4AFD /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		14A129AE1CE1896B0026B986 /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 		14A129B01CE18A020026B986 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
 		14A14C931CE176740043E54E /* ChordBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				14A129B01CE18A020026B986 /* ChordProgression.swift */,
 				14BA0A271CE455E6008D7A51 /* Note.swift */,
 				14BA0A291CE45841008D7A51 /* Constants.swift */,
+				145169921CE45DE2009A4AFD /* Helper.swift */,
 			);
 			path = ChordBox;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				14BA0A2A1CE45841008D7A51 /* Constants.swift in Sources */,
 				14A14C971CE176740043E54E /* AppDelegate.swift in Sources */,
 				14BA0A281CE455E6008D7A51 /* Note.swift in Sources */,
+				145169931CE45DE2009A4AFD /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

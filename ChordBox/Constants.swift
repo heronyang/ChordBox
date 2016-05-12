@@ -9,5 +9,7 @@
 import Foundation
 
 struct Constants {
-	static let dfaultKey = "C"
+	static let defaultKey = "C"
+	static let noteRegex = "(#|b)?[1-7]"
+	static let chordRegex = "(#|b)?[1-7](M|m)?(6|7)?(sus|b5)?(\\/(#|b)?[1-7])?"
 }
