@@ -16,6 +16,8 @@
 		14A14C9E1CE176740043E54E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A14C9C1CE176740043E54E /* Main.storyboard */; };
 		14A14CA01CE176740043E54E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A14C9F1CE176740043E54E /* Assets.xcassets */; };
 		14A14CA31CE176740043E54E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A14CA11CE176740043E54E /* LaunchScreen.storyboard */; };
+		14BA0A281CE455E6008D7A51 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0A271CE455E6008D7A51 /* Note.swift */; };
+		14BA0A2A1CE45841008D7A51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0A291CE45841008D7A51 /* Constants.swift */; };
 		5AE90E923A61F7F9408B9DDD /* Pods_ChordBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C9C8FAD0719D5DCE538783 /* Pods_ChordBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		14A14C9F1CE176740043E54E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14A14CA21CE176740043E54E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14A14CA41CE176740043E54E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14BA0A271CE455E6008D7A51 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		14BA0A291CE45841008D7A51 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A085F76B0196DA6D274AD4BD /* Pods-ChordBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChordBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChordBox/Pods-ChordBox.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C9C8FAD0719D5DCE538783 /* Pods_ChordBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChordBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8987BE43A5F6AB41EE3C415 /* Pods-ChordBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChordBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChordBox/Pods-ChordBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 				14A14CA41CE176740043E54E /* Info.plist */,
 				14A129AE1CE1896B0026B986 /* Chord.swift */,
 				14A129B01CE18A020026B986 /* ChordProgression.swift */,
+				14BA0A271CE455E6008D7A51 /* Note.swift */,
+				14BA0A291CE45841008D7A51 /* Constants.swift */,
 			);
 			path = ChordBox;
 			sourceTree = "<group>";
@@ -228,7 +234,9 @@
 				14A14C991CE176740043E54E /* MasterViewController.swift in Sources */,
 				14A129B11CE18A020026B986 /* ChordProgression.swift in Sources */,
 				14A129AF1CE1896B0026B986 /* Chord.swift in Sources */,
+				14BA0A2A1CE45841008D7A51 /* Constants.swift in Sources */,
 				14A14C971CE176740043E54E /* AppDelegate.swift in Sources */,
+				14BA0A281CE455E6008D7A51 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

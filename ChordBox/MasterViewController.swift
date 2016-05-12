@@ -48,22 +48,26 @@ class MasterViewController: UITableViewController {
 	func loadDataFromFile() {
 		do {
 			let fileLocation = NSBundle.mainBundle().pathForResource("chordData", ofType: "csv")!
-			
 			let csv = try CSV(name: fileLocation)
-			print(csv.header)
-			print(csv.rows)
-			print(csv.columns)
+			parseRawDataToLocal(csv.rows)
 		} catch {
 			print("error in reading data file");
 		}
 	}
+	
+	func parseRawDataToLocal(rawData: [Dictionary<String, String>]) {
+		print(rawData)
+		for rawDataChordProgression: Dictionary<String, String> in rawData {
+			insertNewChordProgression(ChordProgression(rawDataChordProgression: rawDataChordProgression))
+		}
+	}
 
 	func insertTestChordProgression(sender: AnyObject) {
-		insertNewChordProgression()
+		// TODO: remove this
 	}
 	
-	func insertNewChordProgression() {
-		chordProgressions.insert(ChordProgression(), atIndex: 0)
+	func insertNewChordProgression(chordProgression: ChordProgression) {
+		chordProgressions.insert(chordProgression, atIndex: 0)
 		let indexPath = NSIndexPath(forRow: 0, inSection: 0)
 		self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
 	}
