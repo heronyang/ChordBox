@@ -33,10 +33,10 @@ class RelativeNote: CustomStringConvertible {
 			absoluteNote.acc()
 		} else if flatAcc == "b" {
 			absoluteNote.flat()
-		} else if flatAcc == "%" {
-			absoluteNote.acc()
-			absoluteNote.acc()
 		} else if flatAcc == "x" {
+			absoluteNote.acc()
+			absoluteNote.acc()
+		} else if flatAcc == "%" {
 			absoluteNote.flat()
 			absoluteNote.flat()
 		}

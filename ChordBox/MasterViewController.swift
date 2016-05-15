@@ -18,10 +18,10 @@ class MasterViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		self.navigationItem.title = "All Chords"
+		self.navigationItem.title = "All"
 		
-		let infoButton = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: #selector(insertTestChordProgression(_:)))
-		let playButton = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: #selector(insertTestChordProgression(_:)))
+		let infoButton = UIBarButtonItem(title: "☰", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(showSettingPoppup(_:)))
+		let playButton = UIBarButtonItem(title: "♫", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(randomSelect(_:)))
 		
 		self.navigationItem.leftBarButtonItem = infoButton
 		self.navigationItem.rightBarButtonItem = playButton
@@ -61,8 +61,12 @@ class MasterViewController: UITableViewController {
 		}
 	}
 
-	func insertTestChordProgression(sender: AnyObject) {
-		// TODO: remove this
+	func showSettingPoppup(sender: AnyObject) {
+		
+	}
+	
+	func randomSelect(sender: AnyObject) {
+		
 	}
 	
 	func insertNewChordProgression(chordProgression: ChordProgression) {
