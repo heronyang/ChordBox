@@ -88,7 +88,7 @@ class MasterViewController: UITableViewController {
 		    }
 		}
 	}
-
+	
 	// MARK: - Table View
 
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -26,7 +26,7 @@ class RelativeNote: CustomStringConvertible {
 	
 	func getAbsoluteNote(key: String) -> AbsoluteNote {
 		
-		let keyScale = Constants.keyMap[Constants.defaultKey]![noteNumber - 1]
+		let keyScale = Constants.keyMap[Configuration.key]![noteNumber - 1]
 		let absoluteNote:AbsoluteNote = AbsoluteNote(rawData: keyScale)
 		
 		if flatAcc == "#" {

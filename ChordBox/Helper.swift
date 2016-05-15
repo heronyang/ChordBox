@@ -6,7 +6,7 @@
 //  Copyright © 2016 Heron Yang. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Helper {
 	
@@ -42,6 +42,10 @@ class Helper {
 		
 		return nil
 		
+	}
+	
+	static func openUrl(url: String) {
+		UIApplication.sharedApplication().openURL(NSURL(string: url)!)
 	}
 	
 }

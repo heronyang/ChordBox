@@ -15,7 +15,7 @@ class Chord: CustomStringConvertible {
 	private let decoration: String?
 	private let inversion: RelativeNote?
 	
-	private let key: String = Constants.defaultKey // TODO: read system variable
+	private let key: String = Configuration.key// TODO: read system variable
 	
 	var description: String {
 		var buf: String = self.tonic.getAbsoluteNote(key).description

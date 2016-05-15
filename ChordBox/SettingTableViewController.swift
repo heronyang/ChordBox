@@ -8,23 +8,33 @@
 
 import UIKit
 
-class SettingTableViewController: UITableViewController {
+class SettingTableViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 	
-	/*
-	override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-	if(self.tableView.respondsToSelector(Selector("setSeparatorInset:"))){
-	self.tableView.separatorInset = UIEdgeInsetsZero
+	let pickerDataSource = Array(Constants.keyMap.keys.sort().rotate(3))
+ 
+	@IBOutlet weak var pickerView: UIPickerView!
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		self.pickerView.dataSource = self;
+		self.pickerView.delegate = self;
 	}
 	
-	if(self.tableView.respondsToSelector(Selector("setLayoutMargins:"))){
-	self.tableView.layoutMargins = UIEdgeInsetsZero
+	func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+		return 1
+	}
+ 
+	func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+		return pickerDataSource.count
+	}
+ 
+	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+		return pickerDataSource[row]
 	}
 	
-	if(cell.respondsToSelector(Selector("setLayoutMargins:"))){
-	cell.layoutMargins = UIEdgeInsetsZero
+	func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+		let selectedKey = pickerDataSource[row]
+		Configuration.key = selectedKey
 	}
-	}
-	*/
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		
@@ -32,16 +42,13 @@ class SettingTableViewController: UITableViewController {
 		let r = indexPath.row
 		
 		if s == 1 && r == 0 {
-			openUrl("http://www.heron.me")
+			Helper.openUrl("http://www.heron.me")
 		} else if s == 1 && r == 1 {
-			openUrl("http://pason-nosap-music-factory.weebly.com/")
+			Helper.openUrl("http://pason-nosap-music-factory.weebly.com/")
 		} else if s == 1 && r == 2 {
-			openUrl("https://www.linkedin.com/in/wuning0219")
+			Helper.openUrl("https://www.linkedin.com/in/wuning0219")
 		}
-	}
-	
-	func openUrl(url: String) {
-		UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+		
 	}
 	
 }

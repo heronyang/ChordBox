@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -143,28 +144,51 @@
                         <sections>
                             <tableViewSection headerTitle="Key" id="QGo-sO-Wo4">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3lQ-qV-eMm">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3lQ-qV-eMm" id="bKz-5N-iCU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bn1-ct-rjc">
-                                        <rect key="frame" x="0.0" y="44" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bn1-ct-rjc" id="TB3-3h-2m8">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WGr-9h-GHx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="171" id="WGr-9h-GHx">
                                         <rect key="frame" x="0.0" y="88" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WGr-9h-GHx" id="R5R-lO-FKe">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQW-eg-lYb">
+                                                    <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="jRK-xL-CJQ" id="niq-XE-Lsh"/>
+                                                        <outlet property="delegate" destination="jRK-xL-CJQ" id="RB7-du-J9a"/>
+                                                    </connections>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LQW-eg-lYb" firstAttribute="leading" secondItem="R5R-lO-FKe" secondAttribute="leading" id="5vC-fo-oAV"/>
+                                                <constraint firstItem="LQW-eg-lYb" firstAttribute="top" secondItem="R5R-lO-FKe" secondAttribute="top" id="Kkp-jf-p9i"/>
+                                                <constraint firstAttribute="trailing" secondItem="LQW-eg-lYb" secondAttribute="trailing" id="qAN-Ti-eG8"/>
+                                                <constraint firstAttribute="bottom" secondItem="LQW-eg-lYb" secondAttribute="bottom" id="skg-L9-OSI">
+                                                    <variation key="widthClass=compact" constant="-15"/>
+                                                </constraint>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="LQW-eg-lYb"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="5vC-fo-oAV"/>
+                                                    <exclude reference="Kkp-jf-p9i"/>
+                                                    <exclude reference="qAN-Ti-eG8"/>
+                                                    <exclude reference="skg-L9-OSI"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="LQW-eg-lYb"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="5vC-fo-oAV"/>
+                                                    <include reference="Kkp-jf-p9i"/>
+                                                    <include reference="qAN-Ti-eG8"/>
+                                                    <include reference="skg-L9-OSI"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -183,19 +207,34 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="15" y="0.0" width="370" height="43"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pgu-Gk-Zad" firstAttribute="leading" secondItem="UjI-b7-RLr" secondAttribute="leadingMargin" constant="7" id="OPY-Vi-mKq"/>
+                                                <constraint firstItem="pgu-Gk-Zad" firstAttribute="top" secondItem="UjI-b7-RLr" secondAttribute="top" id="R8o-nt-y9Z"/>
+                                                <constraint firstAttribute="bottom" secondItem="pgu-Gk-Zad" secondAttribute="bottom" id="dgX-X0-Bfz"/>
+                                                <constraint firstItem="pgu-Gk-Zad" firstAttribute="centerX" secondItem="UjI-b7-RLr" secondAttribute="centerX" id="gcO-IN-lbQ"/>
+                                            </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="pgu-Gk-Zad"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="OPY-Vi-mKq"/>
+                                                    <exclude reference="R8o-nt-y9Z"/>
+                                                    <exclude reference="dgX-X0-Bfz"/>
+                                                    <exclude reference="gcO-IN-lbQ"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="pgu-Gk-Zad"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="OPY-Vi-mKq"/>
+                                                    <include reference="R8o-nt-y9Z"/>
+                                                    <include reference="dgX-X0-Bfz"/>
+                                                    <include reference="gcO-IN-lbQ"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -212,19 +251,34 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="15" y="0.0" width="370" height="43"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Lgg-Lb-Jk8" secondAttribute="bottom" id="8qx-CM-UIw"/>
+                                                <constraint firstItem="Lgg-Lb-Jk8" firstAttribute="top" secondItem="Avs-PA-1at" secondAttribute="top" id="9BG-9r-DgG"/>
+                                                <constraint firstItem="Lgg-Lb-Jk8" firstAttribute="centerX" secondItem="Avs-PA-1at" secondAttribute="centerX" id="IPq-f1-EGG"/>
+                                                <constraint firstItem="Lgg-Lb-Jk8" firstAttribute="leading" secondItem="Avs-PA-1at" secondAttribute="leadingMargin" constant="7" id="uPM-Ia-qtw"/>
+                                            </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="Lgg-Lb-Jk8"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="8qx-CM-UIw"/>
+                                                    <exclude reference="9BG-9r-DgG"/>
+                                                    <exclude reference="IPq-f1-EGG"/>
+                                                    <exclude reference="uPM-Ia-qtw"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="Lgg-Lb-Jk8"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="8qx-CM-UIw"/>
+                                                    <include reference="9BG-9r-DgG"/>
+                                                    <include reference="IPq-f1-EGG"/>
+                                                    <include reference="uPM-Ia-qtw"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -241,19 +295,34 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="15" y="0.0" width="370" height="43"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ybx-eI-mma" firstAttribute="leading" secondItem="Oo0-w0-BIs" secondAttribute="leadingMargin" constant="7" id="9nR-ck-spx"/>
+                                                <constraint firstItem="ybx-eI-mma" firstAttribute="centerX" secondItem="Oo0-w0-BIs" secondAttribute="centerX" id="Esf-xg-0tF"/>
+                                                <constraint firstAttribute="bottom" secondItem="ybx-eI-mma" secondAttribute="bottom" id="uIr-Ut-Bi0"/>
+                                                <constraint firstItem="ybx-eI-mma" firstAttribute="top" secondItem="Oo0-w0-BIs" secondAttribute="top" id="vg9-gO-6w5"/>
+                                            </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="ybx-eI-mma"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="9nR-ck-spx"/>
+                                                    <exclude reference="Esf-xg-0tF"/>
+                                                    <exclude reference="uIr-Ut-Bi0"/>
+                                                    <exclude reference="vg9-gO-6w5"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="ybx-eI-mma"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="9nR-ck-spx"/>
+                                                    <include reference="Esf-xg-0tF"/>
+                                                    <include reference="uIr-Ut-Bi0"/>
+                                                    <include reference="vg9-gO-6w5"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -261,20 +330,20 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="jRK-xL-CJQ" id="Bg1-Re-ZS6"/>
-                            <outlet property="delegate" destination="jRK-xL-CJQ" id="aOp-2G-eRz"/>
-                        </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="pickerView" destination="LQW-eg-lYb" id="RX1-sj-fJf"/>
+                        <outlet property="view" destination="LQW-eg-lYb" id="73v-lU-42f"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVY-6a-Wd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2124" y="77"/>
+            <point key="canvasLocation" x="2286" y="69"/>
         </scene>
         <!--Setting-->
         <scene sceneID="K9z-bZ-6QD">
             <objects>
-                <viewController title="Setting" id="o2e-ub-FIs" sceneMemberID="viewController">
+                <viewController title="Setting" id="o2e-ub-FIs" customClass="SettingViewController" customModule="ChordBox" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bTl-9P-XLK"/>
                         <viewControllerLayoutGuide type="bottom" id="xjY-S9-8Ig"/>
