@@ -9,4 +9,11 @@
 import UIKit
 
 class SettingViewController: UIViewController {
+	
+	var delegate: CallbackDelegate?
+	
+	override func viewWillDisappear(animated: Bool) {
+		self.delegate?.reloadTable()
+	}
+
 }

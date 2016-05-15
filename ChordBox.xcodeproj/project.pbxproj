@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		141DEAAA1CE8E1DB0043B47B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DEAA91CE8E1DB0043B47B /* Configuration.swift */; };
 		141DEAAC1CE8E6810043B47B /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DEAAB1CE8E6810043B47B /* Array.swift */; };
+		141DEAAF1CE8ED9E0043B47B /* CallbackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DEAAE1CE8ED9E0043B47B /* CallbackProtocol.swift */; };
 		14302FA61CE1B5D900627562 /* chordData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 14302FA51CE1B5D900627562 /* chordData.csv */; };
 		145169931CE45DE2009A4AFD /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145169921CE45DE2009A4AFD /* Helper.swift */; };
 		1487B44D1CE8563100734F78 /* RelativeNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487B44C1CE8563100734F78 /* RelativeNote.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		141DEAA91CE8E1DB0043B47B /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		141DEAAB1CE8E6810043B47B /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		141DEAAE1CE8ED9E0043B47B /* CallbackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallbackProtocol.swift; sourceTree = "<group>"; };
 		14302FA51CE1B5D900627562 /* chordData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chordData.csv; sourceTree = "<group>"; };
 		145169921CE45DE2009A4AFD /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		1487B44C1CE8563100734F78 /* RelativeNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeNote.swift; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 				141DEAAB1CE8E6810043B47B /* Array.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		141DEAB01CE8EDA90043B47B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				141DEAAE1CE8ED9E0043B47B /* CallbackProtocol.swift */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 		1487B4501CE856C500734F78 /* Models */ = {
@@ -135,6 +145,7 @@
 				141DEAA91CE8E1DB0043B47B /* Configuration.swift */,
 				145169921CE45DE2009A4AFD /* Helper.swift */,
 				141DEAAD1CE8E69B0043B47B /* Extension */,
+				141DEAB01CE8EDA90043B47B /* Protocol */,
 			);
 			path = ChordBox;
 			sourceTree = "<group>";
@@ -284,6 +295,7 @@
 				14A14C9B1CE176740043E54E /* DetailViewController.swift in Sources */,
 				14A14C991CE176740043E54E /* MasterViewController.swift in Sources */,
 				14A129B11CE18A020026B986 /* ChordProgression.swift in Sources */,
+				141DEAAF1CE8ED9E0043B47B /* CallbackProtocol.swift in Sources */,
 				14A129AF1CE1896B0026B986 /* Chord.swift in Sources */,
 				1487B4701CE8A2E900734F78 /* SettingViewController.swift in Sources */,
 				141DEAAA1CE8E1DB0043B47B /* Configuration.swift in Sources */,

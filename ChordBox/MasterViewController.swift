@@ -9,13 +9,14 @@
 import UIKit
 import SwiftCSV
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, CallbackDelegate {
 
 	var detailViewController: DetailViewController? = nil
 	var chordProgressions = [ChordProgression]()
 
 
 	override func viewDidLoad() {
+		
 		super.viewDidLoad()
 		
 		self.navigationItem.title = "All"
@@ -86,6 +87,9 @@ class MasterViewController: UITableViewController {
 		        controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
 		        controller.navigationItem.leftItemsSupplementBackButton = true
 		    }
+		} else if segue.identifier == "ShowSettingPage" {
+			let settingViewController = (segue.destinationViewController as! SettingViewController)
+			settingViewController.delegate = self
 		}
 	}
 	
@@ -112,7 +116,10 @@ class MasterViewController: UITableViewController {
 		// Return false if you do not want the specified item to be editable.
 		return true
 	}
-
+	
+	func reloadTable() {
+		self.tableView.reloadData()
+	}
 
 }
 
