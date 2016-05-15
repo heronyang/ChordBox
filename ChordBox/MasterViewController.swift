@@ -20,7 +20,7 @@ class MasterViewController: UITableViewController {
 		
 		self.navigationItem.title = "All"
 		
-		let infoButton = UIBarButtonItem(title: "☰", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(showSettingPoppup(_:)))
+		let infoButton = UIBarButtonItem(title: "☰", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(showSettingPage(_:)))
 		let playButton = UIBarButtonItem(title: "♫", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(randomSelect(_:)))
 		
 		self.navigationItem.leftBarButtonItem = infoButton
@@ -61,8 +61,8 @@ class MasterViewController: UITableViewController {
 		}
 	}
 
-	func showSettingPoppup(sender: AnyObject) {
-		
+	func showSettingPage(sender: AnyObject) {
+		performSegueWithIdentifier("ShowSettingPage", sender: self)
 	}
 	
 	func randomSelect(sender: AnyObject) {
