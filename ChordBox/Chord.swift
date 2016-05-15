@@ -47,6 +47,7 @@ class Chord: CustomStringConvertible {
 		
 		self.decoration = rawData[rawData.startIndex.advancedBy(decorationStartIndex) ..< rawData.startIndex.advancedBy(decorationEndIndex)]
 		
+		print("\(decorationStartIndex) \(decorationEndIndex) \(rawData) \(self.tonic.description) \(self.decoration) \(self.inversion?.description ?? "")")
 	}
 	
 }
