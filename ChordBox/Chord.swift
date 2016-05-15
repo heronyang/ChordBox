@@ -16,7 +16,7 @@ class Chord: CustomStringConvertible {
 	private let inversion: Note?
 	
 	var description: String {
-		var buf:String = self.tonic.description
+		var buf: String = self.tonic.description
 		if self.decoration != nil {
 			buf += ".\(self.decoration!)"
 		}
@@ -35,23 +35,17 @@ class Chord: CustomStringConvertible {
 		
 		self.tonic = Note(rawData: chordMatches[0])
 		
-		var decorationHolder: String = self.rawData
-		let toArray = decorationHolder.componentsSeparatedByString(chordMatches[0])
-		decorationHolder = toArray.joinWithSeparator("")
+		let decorationStartIndex: Int = chordMatches[0].characters.count
+		var decorationEndIndex: Int = rawData.characters.count
 		
 		if !inversionMatches.isEmpty {
 			self.inversion = Note(rawData: inversionMatches[0])
-			let toArray2 = decorationHolder.componentsSeparatedByString(inversionMatches[0])
-			decorationHolder = toArray2.joinWithSeparator("")
+			decorationEndIndex -= inversionMatches[0].characters.count
 		} else {
 			self.inversion = nil
 		}
 		
-		if decorationHolder == "" {
-			self.decoration = nil
-		} else {
-			self.decoration = decorationHolder
-		}
+		self.decoration = rawData[rawData.startIndex.advancedBy(decorationStartIndex) ..< rawData.startIndex.advancedBy(decorationEndIndex)]
 		
 	}
 	
