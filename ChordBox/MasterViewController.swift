@@ -22,7 +22,7 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 		self.navigationItem.title = "All"
 		
 		let infoButton = UIBarButtonItem(title: "☰", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(showSettingPage(_:)))
-		let playButton = UIBarButtonItem(title: "♫", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(randomSelect(_:)))
+		let playButton = UIBarButtonItem(title: "Random ♫", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(randomSelect(_:)))
 		
 		self.navigationItem.leftBarButtonItem = infoButton
 		self.navigationItem.rightBarButtonItem = playButton
@@ -63,11 +63,18 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 	}
 
 	func showSettingPage(sender: AnyObject) {
-		performSegueWithIdentifier("ShowSettingPage", sender: self)
+		performSegueWithIdentifier("showSettingPage", sender: self)
 	}
 	
 	func randomSelect(sender: AnyObject) {
-		
+		let index = NSIndexPath(forRow: getRandomRowNumber(), inSection: 0);
+		self.tableView.selectRowAtIndexPath(index, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+		performSegueWithIdentifier("showDetail", sender: self)
+	}
+	
+	func getRandomRowNumber() -> Int {
+		let diceRoll = Int(arc4random_uniform(UInt32(self.chordProgressions.count)) + 1)
+		return diceRoll
 	}
 	
 	func insertNewChordProgression(chordProgression: ChordProgression) {
@@ -87,7 +94,7 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 		        controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
 		        controller.navigationItem.leftItemsSupplementBackButton = true
 		    }
-		} else if segue.identifier == "ShowSettingPage" {
+		} else if segue.identifier == "showSettingPage" {
 			let settingViewController = (segue.destinationViewController as! SettingViewController)
 			settingViewController.delegate = self
 		}
@@ -113,8 +120,7 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 	}
 
 	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-		// Return false if you do not want the specified item to be editable.
-		return true
+		return false
 	}
 	
 	func reloadTable() {

@@ -111,7 +111,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
                     <connections>
-                        <segue destination="o2e-ub-FIs" kind="show" identifier="ShowSettingPage" id="Z4Z-E3-MfY"/>
+                        <segue destination="o2e-ub-FIs" kind="show" identifier="showSettingPage" id="Z4Z-E3-MfY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
