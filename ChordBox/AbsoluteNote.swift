@@ -17,7 +17,8 @@ class AbsoluteNote: CustomStringConvertible {
 		if accFlat == nil {
 			return "\(noteKey)"
 		}
-		return "\(noteKey)\(accFlat!)"
+		let printableAccFlat = Constants.printableAccFlatSymbols[accFlat!]
+		return "\(noteKey)\(printableAccFlat!)"
 	}
 	
 	init(noteKey: String, accFlat: String?) {
@@ -32,33 +33,37 @@ class AbsoluteNote: CustomStringConvertible {
 	}
 	
 	func acc() {
-		if accFlat == nil {
+		
+		if accFlat == "bb" {
+			accFlat = "b"
+		} else if accFlat == "b" {
+			accFlat = nil
+		} else if accFlat == nil {
 			accFlat = "#"
 		} else if accFlat == "#" {
 			accFlat = "##"
-		} else if accFlat == "b" {
-			accFlat = nil
-		} else if accFlat == "x" {
-			accFlat = "b"
-		}else {
+		} else {
 			accFlat = "!"
 			print("error, not supported type")
 		}
+		
 	}
 	
 	func flat() {
-		if accFlat == nil {
-			accFlat = "b"
+		
+		if accFlat == "##" {
+			accFlat = "#"
 		} else if accFlat == "#" {
 			accFlat = nil
+		} else if accFlat == nil {
+			accFlat = "b"
 		} else if accFlat == "b" {
-			accFlat = "x"
-		} else if accFlat == "##" || accFlat == "%" {
-			accFlat = "#"
+			accFlat = "bb"
 		}else {
 			accFlat = "!"
 			print("error, not supported type")
 		}
+		
 	}
 	
 }

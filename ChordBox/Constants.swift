@@ -16,7 +16,7 @@ struct Constants {
 	static let noteFlatAcc = "[#|b|%|x]"
 	static let chordRegex = "(#|b|%|x)?[1-7](M|m)?(6|7)?(sus|b5)?(\\/(#|b|%|x)?[1-7])?"
 	
-	static let defaultKey = "C"
+	static let defaultKey = "G#/Ab"
 	static let keyMap = [
 		"C": ["C", "D", "E", "F", "G", "A", "B"],
 		"C#/Db": ["Db", "Eb", "F", "Gb", "Ab", "Bb", "C"],
@@ -31,5 +31,6 @@ struct Constants {
 		"A#/Bb": ["Bb", "C", "D", "Eb", "F", "G", "A", "Bb"],
 		"B": ["B", "C#", "D#", "E", "F#", "G#", "A#"]
 	]
+	static let printableAccFlatSymbols = ["#": "♯", "b": "♭", "##": "𝄪", "bb": "𝄫"]
 	
 }
