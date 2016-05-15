@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		14302FA61CE1B5D900627562 /* chordData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 14302FA51CE1B5D900627562 /* chordData.csv */; };
 		145169931CE45DE2009A4AFD /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145169921CE45DE2009A4AFD /* Helper.swift */; };
+		1487B44D1CE8563100734F78 /* RelativeNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487B44C1CE8563100734F78 /* RelativeNote.swift */; };
+		1487B44F1CE856A000734F78 /* AbsoluteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487B44E1CE856A000734F78 /* AbsoluteNote.swift */; };
 		14A129AF1CE1896B0026B986 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A129AE1CE1896B0026B986 /* Chord.swift */; };
 		14A129B11CE18A020026B986 /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A129B01CE18A020026B986 /* ChordProgression.swift */; };
 		14A14C971CE176740043E54E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A14C961CE176740043E54E /* AppDelegate.swift */; };
@@ -17,7 +19,6 @@
 		14A14C9E1CE176740043E54E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A14C9C1CE176740043E54E /* Main.storyboard */; };
 		14A14CA01CE176740043E54E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A14C9F1CE176740043E54E /* Assets.xcassets */; };
 		14A14CA31CE176740043E54E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A14CA11CE176740043E54E /* LaunchScreen.storyboard */; };
-		14BA0A281CE455E6008D7A51 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0A271CE455E6008D7A51 /* Note.swift */; };
 		14BA0A2A1CE45841008D7A51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0A291CE45841008D7A51 /* Constants.swift */; };
 		5AE90E923A61F7F9408B9DDD /* Pods_ChordBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C9C8FAD0719D5DCE538783 /* Pods_ChordBox.framework */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		14302FA51CE1B5D900627562 /* chordData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chordData.csv; sourceTree = "<group>"; };
 		145169921CE45DE2009A4AFD /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		1487B44C1CE8563100734F78 /* RelativeNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeNote.swift; sourceTree = "<group>"; };
+		1487B44E1CE856A000734F78 /* AbsoluteNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsoluteNote.swift; sourceTree = "<group>"; };
 		14A129AE1CE1896B0026B986 /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 		14A129B01CE18A020026B986 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
 		14A14C931CE176740043E54E /* ChordBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,7 +38,6 @@
 		14A14C9F1CE176740043E54E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14A14CA21CE176740043E54E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14A14CA41CE176740043E54E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14BA0A271CE455E6008D7A51 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		14BA0A291CE45841008D7A51 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A085F76B0196DA6D274AD4BD /* Pods-ChordBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChordBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChordBox/Pods-ChordBox.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C9C8FAD0719D5DCE538783 /* Pods_ChordBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChordBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +56,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1487B4501CE856C500734F78 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1487B44C1CE8563100734F78 /* RelativeNote.swift */,
+				1487B44E1CE856A000734F78 /* AbsoluteNote.swift */,
+				14A129AE1CE1896B0026B986 /* Chord.swift */,
+				14A129B01CE18A020026B986 /* ChordProgression.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		14A14C8A1CE176740043E54E = {
 			isa = PBXGroup;
 			children = (
@@ -83,9 +96,7 @@
 				14A14C9F1CE176740043E54E /* Assets.xcassets */,
 				14A14CA11CE176740043E54E /* LaunchScreen.storyboard */,
 				14A14CA41CE176740043E54E /* Info.plist */,
-				14A129AE1CE1896B0026B986 /* Chord.swift */,
-				14A129B01CE18A020026B986 /* ChordProgression.swift */,
-				14BA0A271CE455E6008D7A51 /* Note.swift */,
+				1487B4501CE856C500734F78 /* Models */,
 				14BA0A291CE45841008D7A51 /* Constants.swift */,
 				145169921CE45DE2009A4AFD /* Helper.swift */,
 			);
@@ -233,13 +244,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1487B44F1CE856A000734F78 /* AbsoluteNote.swift in Sources */,
 				14A14C9B1CE176740043E54E /* DetailViewController.swift in Sources */,
 				14A14C991CE176740043E54E /* MasterViewController.swift in Sources */,
 				14A129B11CE18A020026B986 /* ChordProgression.swift in Sources */,
 				14A129AF1CE1896B0026B986 /* Chord.swift in Sources */,
 				14BA0A2A1CE45841008D7A51 /* Constants.swift in Sources */,
 				14A14C971CE176740043E54E /* AppDelegate.swift in Sources */,
-				14BA0A281CE455E6008D7A51 /* Note.swift in Sources */,
+				1487B44D1CE8563100734F78 /* RelativeNote.swift in Sources */,
 				145169931CE45DE2009A4AFD /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

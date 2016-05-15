@@ -11,17 +11,19 @@ import Foundation
 class Chord: CustomStringConvertible {
 	
 	private let rawData: String!
-	private let tonic: Note!
+	private let tonic: RelativeNote!
 	private let decoration: String?
-	private let inversion: Note?
+	private let inversion: RelativeNote?
+	
+	private let key: String = Constants.defaultKey // TODO: read system variable
 	
 	var description: String {
-		var buf: String = self.tonic.description
+		var buf: String = self.tonic.getAbsoluteNote(key).description
 		if self.decoration != nil {
 			buf += "\(self.decoration!)"
 		}
 		if self.inversion != nil {
-			buf += "\(self.inversion!.description)"
+			buf += "\(self.inversion!.getAbsoluteNote(key).description)"
 		}
 		return buf
 	}
@@ -33,13 +35,13 @@ class Chord: CustomStringConvertible {
 		let chordMatches = Helper.matchesForRegexInText(Constants.noteRegex, text: self.rawData)
 		let inversionMatches = Helper.matchesForRegexInText("/" + Constants.noteRegex, text: self.rawData)
 		
-		self.tonic = Note(rawData: chordMatches[0])
+		self.tonic = RelativeNote(rawData: chordMatches[0])
 		
 		let decorationStartIndex: Int = chordMatches[0].characters.count
 		var decorationEndIndex: Int = rawData.characters.count
 		
 		if !inversionMatches.isEmpty {
-			self.inversion = Note(rawData: inversionMatches[0])
+			self.inversion = RelativeNote(rawData: inversionMatches[0])
 			decorationEndIndex -= inversionMatches[0].characters.count
 		} else {
 			self.inversion = nil
