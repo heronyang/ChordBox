@@ -18,10 +18,10 @@ class Chord: CustomStringConvertible {
 	var description: String {
 		var buf: String = self.tonic.description
 		if self.decoration != nil {
-			buf += ".\(self.decoration!)"
+			buf += "\(self.decoration!)"
 		}
 		if self.inversion != nil {
-			buf += "_\(self.inversion!.description)"
+			buf += "\(self.inversion!.description)"
 		}
 		return buf
 	}

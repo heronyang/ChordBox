@@ -11,5 +11,7 @@ import Foundation
 struct Constants {
 	static let defaultKey = "C"
 	static let noteRegex = "(#|b)?[1-7]"
-	static let chordRegex = "(#|b)?[1-7](M|m)?(6|7)?(sus|b5)?(\\/(#|b)?[1-7])?"
+	static let noteNumberRegex = "[1-7]"
+	static let noteFlatAcc = "[#|b|%|x]"
+	static let chordRegex = "(#|b|%|x)?[1-7](M|m)?(6|7)?(sus|b5)?(\\/(#|b|%|x)?[1-7])?"
 }

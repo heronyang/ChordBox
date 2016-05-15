@@ -13,20 +13,38 @@ class Note: CustomStringConvertible {
 	let rawData: String
 	
 	let absoluteNumber: Int
-	let absoluteFlatAccidental: String
+	let absoluteFlatAcc : String?
 	
 	var key: String = Constants.defaultKey
 	
 	var description: String {
 		get {
-			return self.rawData
+			if absoluteFlatAcc != nil {
+				return "\(absoluteFlatAcc!)\(absoluteNumber)"
+			}
+			return "\(absoluteNumber)"
 		}
 	}
 	
 	init(rawData: String) {
+		
 		self.rawData = rawData
-		self.absoluteNumber = 1
-		self.absoluteFlatAccidental = "#"
+		
+		if rawData.rangeOfString("#") != nil{
+			self.absoluteFlatAcc = "#"
+		} else if rawData.rangeOfString("b") != nil {
+			self.absoluteFlatAcc = "b"
+		} else if rawData.rangeOfString("%") != nil { // NOTE: % == ##
+			self.absoluteFlatAcc = "%"
+		} else if rawData.rangeOfString("x") != nil {
+			self.absoluteFlatAcc = "x"
+		} else {
+			self.absoluteFlatAcc = nil
+		}
+
+		let matches = Helper.matchesForRegexInText(Constants.noteNumberRegex, text: rawData)
+		self.absoluteNumber = Int(matches[0])!
+		
 	}
 	
 }

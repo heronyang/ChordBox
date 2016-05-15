@@ -49,7 +49,7 @@ class MasterViewController: UITableViewController {
 		do {
 			let fileLocation = NSBundle.mainBundle().pathForResource("chordData", ofType: "csv")!
 			let csv = try CSV(name: fileLocation)
-			parseRawDataToLocal(csv.rows)
+			parseRawDataToLocal(csv.rows.reverse())
 		} catch {
 			print("error in reading data file");
 		}
