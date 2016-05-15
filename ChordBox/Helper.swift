@@ -27,4 +27,21 @@ class Helper {
 		let matches  = matchesForRegexInText(regex, text: text)
 		return matches.count > 0
 	}
+	
+	static func detectAccFlat(data: String) -> String? {
+		
+		if data.rangeOfString("#") != nil{
+			return "#"
+		} else if data.rangeOfString("b") != nil {
+			return "b"
+		} else if data.rangeOfString("%") != nil { // NOTE: % == ##
+			return "%"
+		} else if data.rangeOfString("x") != nil {
+			return "x"
+		}
+		
+		return nil
+		
+	}
+	
 }

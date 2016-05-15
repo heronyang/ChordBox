@@ -25,6 +25,12 @@ class AbsoluteNote: CustomStringConvertible {
 		self.accFlat = accFlat
 	}
 	
+	init(rawData: String) {
+		let matches = Helper.matchesForRegexInText(Constants.noteKeyRegex, text: rawData)
+		self.noteKey = matches[0]
+		self.accFlat = Helper.detectAccFlat(rawData)
+	}
+	
 	func acc() {
 		if accFlat == nil {
 			accFlat = "#"

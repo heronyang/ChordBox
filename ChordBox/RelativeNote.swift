@@ -26,7 +26,8 @@ class RelativeNote: CustomStringConvertible {
 	
 	func getAbsoluteNote(key: String) -> AbsoluteNote {
 		
-		let absoluteNote:AbsoluteNote = AbsoluteNote(noteKey:"C", accFlat: "#")
+		let keyScale = Constants.keyMap[Constants.defaultKey]![noteNumber - 1]
+		let absoluteNote:AbsoluteNote = AbsoluteNote(rawData: keyScale)
 		
 		if flatAcc == "#" {
 			absoluteNote.acc()
@@ -48,21 +49,12 @@ class RelativeNote: CustomStringConvertible {
 		
 		self.rawData = rawData
 		
-		if rawData.rangeOfString("#") != nil{
-			self.flatAcc = "#"
-		} else if rawData.rangeOfString("b") != nil {
-			self.flatAcc = "b"
-		} else if rawData.rangeOfString("%") != nil { // NOTE: % == ##
-			self.flatAcc = "%"
-		} else if rawData.rangeOfString("x") != nil {
-			self.flatAcc = "x"
-		} else {
-			self.flatAcc = nil
-		}
-
 		let matches = Helper.matchesForRegexInText(Constants.noteNumberRegex, text: rawData)
 		self.noteNumber = Int(matches[0])!
 		
+		self.flatAcc = Helper.detectAccFlat(rawData)
+
 	}
 	
 }
+

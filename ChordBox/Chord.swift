@@ -23,7 +23,7 @@ class Chord: CustomStringConvertible {
 			buf += "\(self.decoration!)"
 		}
 		if self.inversion != nil {
-			buf += "\(self.inversion!.getAbsoluteNote(key).description)"
+			buf += "/\(self.inversion!.getAbsoluteNote(key).description)"
 		}
 		return buf
 	}
