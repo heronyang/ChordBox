@@ -42,13 +42,17 @@ class SettingTableViewController: UITableViewController, UIPickerViewDataSource,
 		let r = indexPath.row
 		
 		if s == 1 && r == 0 {
-			Helper.openUrl("http://www.heron.me")
+			openUrl("http://www.heron.me")
 		} else if s == 1 && r == 1 {
-			Helper.openUrl("http://pason-nosap-music-factory.weebly.com/")
+			openUrl("http://pason-nosap-music-factory.weebly.com/")
 		} else if s == 1 && r == 2 {
-			Helper.openUrl("https://www.linkedin.com/in/wuning0219")
+			openUrl("https://www.linkedin.com/in/wuning0219")
 		}
 		
+	}
+	
+	func openUrl(url: String) {
+		UIApplication.sharedApplication().openURL(NSURL(string: url)!)
 	}
 	
 }

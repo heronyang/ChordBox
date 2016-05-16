@@ -17,7 +17,15 @@
 		141DEAC71CE9618E0043B47B /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DEAC61CE9618E0043B47B /* ExtensionDelegate.swift */; };
 		141DEAC91CE9618E0043B47B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141DEAC81CE9618E0043B47B /* Assets.xcassets */; };
 		141DEACD1CE9618E0043B47B /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 141DEAB31CE9618D0043B47B /* Watch.app */; };
-		141DEAD71CE970380043B47B /* SharedChordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DEAD61CE970380043B47B /* SharedChordData.swift */; };
+		141DEAD91CE9A4BD0043B47B /* SharedChordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DEAD81CE9A4BD0043B47B /* SharedChordData.swift */; };
+		141DEADC1CE9A8E20043B47B /* SharedChordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DEAD81CE9A4BD0043B47B /* SharedChordData.swift */; };
+		141DEADD1CE9A9930043B47B /* RelativeNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487B44C1CE8563100734F78 /* RelativeNote.swift */; };
+		141DEADE1CE9A9930043B47B /* AbsoluteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487B44E1CE856A000734F78 /* AbsoluteNote.swift */; };
+		141DEADF1CE9A9930043B47B /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A129AE1CE1896B0026B986 /* Chord.swift */; };
+		141DEAE01CE9A9930043B47B /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A129B01CE18A020026B986 /* ChordProgression.swift */; };
+		141DEAE11CE9A9B10043B47B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0A291CE45841008D7A51 /* Constants.swift */; };
+		141DEAE21CE9A9B10043B47B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DEAA91CE8E1DB0043B47B /* Configuration.swift */; };
+		141DEAE31CE9A9B10043B47B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145169921CE45DE2009A4AFD /* Helper.swift */; };
 		14302FA61CE1B5D900627562 /* chordData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 14302FA51CE1B5D900627562 /* chordData.csv */; };
 		145169931CE45DE2009A4AFD /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145169921CE45DE2009A4AFD /* Helper.swift */; };
 		1487B44D1CE8563100734F78 /* RelativeNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487B44C1CE8563100734F78 /* RelativeNote.swift */; };
@@ -91,7 +99,9 @@
 		141DEAC61CE9618E0043B47B /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		141DEAC81CE9618E0043B47B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		141DEACA1CE9618E0043B47B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		141DEAD61CE970380043B47B /* SharedChordData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedChordData.swift; sourceTree = "<group>"; };
+		141DEAD81CE9A4BD0043B47B /* SharedChordData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedChordData.swift; sourceTree = "<group>"; };
+		141DEADA1CE9A62F0043B47B /* Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Watch Extension.entitlements"; sourceTree = "<group>"; };
+		141DEADB1CE9A6DB0043B47B /* ChordBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ChordBox.entitlements; sourceTree = "<group>"; };
 		14302FA51CE1B5D900627562 /* chordData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chordData.csv; sourceTree = "<group>"; };
 		145169921CE45DE2009A4AFD /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		1487B44C1CE8563100734F78 /* RelativeNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeNote.swift; sourceTree = "<group>"; };
@@ -162,6 +172,7 @@
 		141DEAC31CE9618E0043B47B /* Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				141DEADA1CE9A62F0043B47B /* Watch Extension.entitlements */,
 				141DEAC41CE9618E0043B47B /* InterfaceController.swift */,
 				141DEAC61CE9618E0043B47B /* ExtensionDelegate.swift */,
 				141DEAC81CE9618E0043B47B /* Assets.xcassets */,
@@ -207,6 +218,7 @@
 		14A14C8A1CE176740043E54E = {
 			isa = PBXGroup;
 			children = (
+				141DEAD81CE9A4BD0043B47B /* SharedChordData.swift */,
 				14A14C951CE176740043E54E /* ChordBox */,
 				141DEAB41CE9618E0043B47B /* Watch */,
 				141DEAC31CE9618E0043B47B /* Watch Extension */,
@@ -229,8 +241,8 @@
 		14A14C951CE176740043E54E /* ChordBox */ = {
 			isa = PBXGroup;
 			children = (
+				141DEADB1CE9A6DB0043B47B /* ChordBox.entitlements */,
 				14302FA51CE1B5D900627562 /* chordData.csv */,
-				141DEAD61CE970380043B47B /* SharedChordData.swift */,
 				1487B4721CE8A43A00734F78 /* App */,
 				1487B4711CE8A3A200734F78 /* Controllers */,
 				1487B4501CE856C500734F78 /* Models */,
@@ -336,10 +348,20 @@
 					141DEABE1CE9618E0043B47B = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 2XX3ZFN6CJ;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					14A14C921CE176740043E54E = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 2XX3ZFN6CJ;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -447,6 +469,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141DEAE11CE9A9B10043B47B /* Constants.swift in Sources */,
+				141DEAE21CE9A9B10043B47B /* Configuration.swift in Sources */,
+				141DEAE31CE9A9B10043B47B /* Helper.swift in Sources */,
+				141DEADD1CE9A9930043B47B /* RelativeNote.swift in Sources */,
+				141DEADE1CE9A9930043B47B /* AbsoluteNote.swift in Sources */,
+				141DEADF1CE9A9930043B47B /* Chord.swift in Sources */,
+				141DEAE01CE9A9930043B47B /* ChordProgression.swift in Sources */,
+				141DEADC1CE9A8E20043B47B /* SharedChordData.swift in Sources */,
 				141DEAC71CE9618E0043B47B /* ExtensionDelegate.swift in Sources */,
 				141DEAC51CE9618E0043B47B /* InterfaceController.swift in Sources */,
 			);
@@ -457,7 +487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1487B44F1CE856A000734F78 /* AbsoluteNote.swift in Sources */,
-				141DEAD71CE970380043B47B /* SharedChordData.swift in Sources */,
+				141DEAD91CE9A4BD0043B47B /* SharedChordData.swift in Sources */,
 				14A14C9B1CE176740043E54E /* DetailViewController.swift in Sources */,
 				14A14C991CE176740043E54E /* MasterViewController.swift in Sources */,
 				14A129B11CE18A020026B986 /* ChordProgression.swift in Sources */,
@@ -520,6 +550,7 @@
 		141DEACF1CE9618E0043B47B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Watch Extension.entitlements";
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.heron.ChordBox.watchkitapp.watchkitextension;
@@ -534,6 +565,7 @@
 		141DEAD01CE9618E0043B47B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Watch Extension.entitlements";
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.heron.ChordBox.watchkitapp.watchkitextension;
@@ -671,6 +703,7 @@
 			baseConfigurationReference = A085F76B0196DA6D274AD4BD /* Pods-ChordBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChordBox/ChordBox.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ChordBox/Info.plist;
@@ -686,6 +719,7 @@
 			baseConfigurationReference = D8987BE43A5F6AB41EE3C415 /* Pods-ChordBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ChordBox/ChordBox.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ChordBox/Info.plist;

@@ -53,8 +53,4 @@ class Helper {
 		
 	}
 	
-	static func openUrl(url: String) {
-		UIApplication.sharedApplication().openURL(NSURL(string: url)!)
-	}
-	
 }

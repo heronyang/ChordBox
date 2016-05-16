@@ -11,8 +11,9 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
-
 	@IBOutlet var randomButton: WKInterfaceButton!
+	
+	var sharedChordData = SharedChordData()
 	
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -32,5 +33,7 @@ class InterfaceController: WKInterfaceController {
 
 	@IBAction func randomButtonOnTapped() {
 		randomButton.setTitle("tapped")
+		let chordProgressions = sharedChordData.loadFromDefaults()
+		print(chordProgressions.description)
 	}
 }
