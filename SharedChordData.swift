@@ -11,7 +11,7 @@ import Foundation
 struct SharedChordData {
 	
 	private let defaultsKey = "chordProgressions"
-	private let defaults = NSUserDefaults(suiteName: "group.me.heron.ChordBox.Watch")
+	private let defaults = NSUserDefaults.standardUserDefaults()
 	
 	private var chordProgressions = [ChordProgression]()
 	
@@ -36,14 +36,14 @@ struct SharedChordData {
 		
 		let encodedData: NSData = NSKeyedArchiver.archivedDataWithRootObject(chordProgressions)
 		
-		defaults?.setObject(encodedData, forKey: defaultsKey)
-		print(defaults?.synchronize())
+		defaults.setObject(encodedData, forKey: defaultsKey)
+		print(defaults.synchronize())
 		print("SH: save to default")
 		
 	}
 	
 	func loadFromDefaults() -> [ChordProgression] {
-		let decodedData = defaults?.objectForKey(defaultsKey) as? NSData ?? nil
+		let decodedData = defaults.objectForKey(defaultsKey) as? NSData ?? nil
 		if decodedData == nil {
 			return []
 		}
@@ -52,7 +52,7 @@ struct SharedChordData {
 	}
 	
 	func clearAllInDefaults() {
-		defaults?.removeObjectForKey(defaultsKey)
+		defaults.removeObjectForKey(defaultsKey)
 	}
 	
 }
