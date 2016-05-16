@@ -8,13 +8,19 @@
 
 import Foundation
 
-class ChordProgression: CustomStringConvertible {
+class ChordProgression: NSObject, NSCoding {
 	
 	private let amount: Int
 	private let unit: Float
 	private var chords = [Chord]()
 	
-	var description: String {
+	struct PropertyKey {
+		static let amountKey = "amount"
+		static let unitKey = "unit"
+		static let chordsKey = "chords"
+	}
+	
+	override var description: String {
 		var d = ""
 		for chord:Chord in chords {
 			d += chord.description + " "
@@ -36,7 +42,7 @@ class ChordProgression: CustomStringConvertible {
 				break
 			}
 			
-			if isValidChordData(rawDataChord) {
+			if Helper.isValidChordData(rawDataChord) {
 				chords.append(Chord(rawData: rawDataChord))
 			}
 			
@@ -44,12 +50,28 @@ class ChordProgression: CustomStringConvertible {
 		
 	}
 	
-	func isValidChordData(rawDataCord: String) -> Bool {
-		return Helper.isMatchedForRegexInText(Constants.chordRegex, text: rawDataCord)
+	// MARK: NSCoding
+	
+	func encodeWithCoder(aCoder: NSCoder) {
+		aCoder.encodeObject(amount, forKey: PropertyKey.amountKey)
+		aCoder.encodeObject(unit, forKey: PropertyKey.unitKey)
+		aCoder.encodeObject(chords, forKey: PropertyKey.chordsKey)
 	}
 	
-	func isContinueSign(rawDataCord: String) -> Bool {
-		return rawDataCord == "-"
+	required convenience init?(coder aDecoder: NSCoder) {
+		let amount = aDecoder.decodeObjectForKey(PropertyKey.amountKey) as! Int
+		let unit = aDecoder.decodeObjectForKey(PropertyKey.unitKey) as! Float
+		let chords = aDecoder.decodeObjectForKey(PropertyKey.chordsKey) as! [Chord]
+		
+		self.init(amount: amount, unit: unit, chords: chords)
+	}
+	
+	init?(amount: Int, unit: Float, chords: [Chord]) {
+		self.amount = amount
+		self.unit = unit
+		self.chords = chords
+		
+		super.init()
 	}
 	
 }

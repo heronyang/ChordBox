@@ -12,8 +12,9 @@ import SwiftCSV
 class MasterViewController: UITableViewController, CallbackDelegate {
 
 	var detailViewController: DetailViewController? = nil
-	var chordProgressions = [ChordProgression]()
-
+	private var chordProgressions = [ChordProgression]()
+	
+	private var sharedChordData = SharedChordData()
 
 	override func viewDidLoad() {
 		
@@ -58,10 +59,34 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 	
 	func parseRawDataToLocal(rawData: [Dictionary<String, String>]) {
 		for rawDataChordProgression: Dictionary<String, String> in rawData {
-			insertNewChordProgression(ChordProgression(rawDataChordProgression: rawDataChordProgression))
+			
+			let newChordProgression = ChordProgression(rawDataChordProgression: rawDataChordProgression)
+			
+			insertNewChordProgression(newChordProgression)
+			insertNewChordProgressionToSharedChordData(newChordProgression)
+			
 		}
+		
+		saveNewChordProgressionsToSharedChordData()
+		
 	}
-
+	
+	func insertNewChordProgression(chordProgression: ChordProgression) {
+		
+		chordProgressions.insert(chordProgression, atIndex: 0)
+		let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+		self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+		
+	}
+	
+	func insertNewChordProgressionToSharedChordData(chordProgression: ChordProgression) {
+		sharedChordData.append(chordProgression)
+	}
+	
+	func saveNewChordProgressionsToSharedChordData() {
+		sharedChordData.save()
+	}
+	
 	func showSettingPage(sender: AnyObject) {
 		performSegueWithIdentifier("showSettingPage", sender: self)
 	}
@@ -77,12 +102,6 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 		return diceRoll
 	}
 	
-	func insertNewChordProgression(chordProgression: ChordProgression) {
-		chordProgressions.insert(chordProgression, atIndex: 0)
-		let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-		self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-	}
-
 	// MARK: - Segues
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -8,12 +8,12 @@
 
 import Foundation
 
-class AbsoluteNote: CustomStringConvertible {
+class AbsoluteNote: NSObject {
 	
 	let noteKey: String
 	var accFlat: String?
 	
-	var description: String {
+	override var description: String {
 		if accFlat == nil {
 			return "\(noteKey)"
 		}

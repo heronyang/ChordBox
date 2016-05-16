@@ -28,6 +28,15 @@ class Helper {
 		return matches.count > 0
 	}
 	
+	static func isValidChordData(rawDataCord: String) -> Bool {
+		return isMatchedForRegexInText(Constants.chordRegex, text: rawDataCord)
+	}
+	
+	static func isContinueSign(rawDataCord: String) -> Bool {
+		return rawDataCord == "-"
+	}
+	
+	
 	static func detectAccFlat(data: String) -> String? {
 		
 		if data.rangeOfString("#") != nil{
