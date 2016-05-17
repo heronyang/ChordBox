@@ -10,10 +10,8 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, DataSourceChangedDelegate {
 	@IBOutlet var randomButton: WKInterfaceButton!
-	
-	var sharedChordData = SharedChordData()
 	
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -23,17 +21,27 @@ class InterfaceController: WKInterfaceController {
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
+		WatchSessionManager.sharedManager.addDataSourceChangedDelegate(self)
+		print("will deactivete")
         super.willActivate()
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
+		WatchSessionManager.sharedManager.removeDataSourceChangedDelegate(self)
+		print("did deactivete")
         super.didDeactivate()
     }
 
 	@IBAction func randomButtonOnTapped() {
 		randomButton.setTitle("tapped")
-		let chordProgressions = sharedChordData.loadFromDefaults()
-		print(chordProgressions.description)
+		print("tapped")
 	}
+	
+	// MARK: DataSourceUpdatedDelegate
+	func dataSourceDidUpdate(chordProgression: ChordProgression) {
+		randomButton.setTitle(chordProgression.description)
+		print(chordProgression)
+	}
+
 }

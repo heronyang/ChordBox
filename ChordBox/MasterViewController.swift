@@ -14,8 +14,6 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 	var detailViewController: DetailViewController? = nil
 	private var chordProgressions = [ChordProgression]()
 	
-	private var sharedChordData = SharedChordData()
-
 	override func viewDidLoad() {
 		
 		super.viewDidLoad()
@@ -35,6 +33,17 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 		
 		loadDataFromFile()
 		
+		sendRandomChordProgressionToWatch()
+		
+	}
+	
+	func sendRandomChordProgressionToWatch() {
+        do {
+			let encodedChordProgression = NSKeyedArchiver.archivedDataWithRootObject(chordProgressions[0])
+            try WatchSessionManager.sharedManager.updateApplicationContext(["chordProgression": encodedChordProgression])
+        } catch {
+			print("error")
+        }
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -80,11 +89,9 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 	}
 	
 	func insertNewChordProgressionToSharedChordData(chordProgression: ChordProgression) {
-		sharedChordData.append(chordProgression)
 	}
 	
 	func saveNewChordProgressionsToSharedChordData() {
-		sharedChordData.save()
 	}
 	
 	func showSettingPage(sender: AnyObject) {
