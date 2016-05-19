@@ -11,7 +11,8 @@ import Foundation
 import WatchConnectivity
 
 protocol DataSourceChangedDelegate {
-	func dataSourceDidUpdate(chordProgression: ChordProgression)
+	func dataSourceDidUpdate(encodedChordProgression: NSData)
+	func dataSourceDidUpdateTest(encodedChordProgression: String)
 }
 
 class WatchSessionManager: NSObject, WCSessionDelegate {
@@ -32,7 +33,7 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
 	
 	func addDataSourceChangedDelegate<T where T: DataSourceChangedDelegate, T: Equatable>(delegate: T) {
 		dataSourceChangedDelegates.append(delegate)
-		print("data source add")
+		NSLog("data source add")
 	}
 	
 	func removeDataSourceChangedDelegate<T where T: DataSourceChangedDelegate, T: Equatable>(delegate: T) {
@@ -42,7 +43,7 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
 				break
 			}
 		}
-		print("data source removed")
+		NSLog("data source removed")
 	}
 }
 
@@ -54,15 +55,22 @@ extension WatchSessionManager {
 	// Receiver
 	func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
 		
+        dispatch_async(dispatch_get_main_queue()) { [weak self] in
+            self?.dataSourceChangedDelegates.forEach { $0.dataSourceDidUpdateTest(applicationContext["encodedChordProgression"] as! String)}
+        }
+		
+
+		/*
 		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			print("get something new")
+			NSLog("get something new")
 			self?.dataSourceChangedDelegates.forEach {
-				print("get something")
+				NSLog("get something")
 				let encodedData: NSData = applicationContext["chordProgression"] as! NSData
 				let chordProgression: ChordProgression = NSKeyedUnarchiver.unarchiveObjectWithData(encodedData) as! ChordProgression
 				$0.dataSourceDidUpdate(chordProgression)
 			}
 		}
+*/
 		
 	}
 }

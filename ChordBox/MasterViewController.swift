@@ -39,10 +39,10 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 	
 	func sendRandomChordProgressionToWatch() {
         do {
-			let encodedChordProgression = NSKeyedArchiver.archivedDataWithRootObject(chordProgressions[0])
-            try WatchSessionManager.sharedManager.updateApplicationContext(["chordProgression": encodedChordProgression])
+			// let encodedChordProgression = NSKeyedArchiver.archivedDataWithRootObject(chordProgressions[0])
+            try WatchSessionManager.sharedManager.updateApplicationContext(["encodedChordProgression": "appleishere"])
         } catch {
-			print("error")
+			NSLog("error")
         }
 	}
 	
@@ -62,7 +62,7 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 			let csv = try CSV(name: fileLocation)
 			parseRawDataToLocal(csv.rows.reverse())
 		} catch {
-			print("error in reading data file");
+			NSLog("error in reading data file");
 		}
 	}
 	

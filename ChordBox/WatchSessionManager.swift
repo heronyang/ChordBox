@@ -20,16 +20,12 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
 	
 	private var validSession: WCSession? {
 		
-		// paired - the user has to have their device paired to the watch
-		// watchAppInstalled - the user must have your watch app installed
-		
-		// Note: if the device is paired, but your watch app is not installed
-		// consider prompting the user to install it for a better experience
-		
 		if let session = session where session.paired && session.watchAppInstalled {
 			return session
 		}
+		
 		return nil
+		
 	}
 	
 	func startSession() {
@@ -48,9 +44,9 @@ extension WatchSessionManager {
 		if let session = validSession {
 			do {
 				try session.updateApplicationContext(applicationContext)
-				print("throw context")
+				NSLog("throw context")
 			} catch let error {
-				print(error)
+				NSLog("error in update application, WatchSessionManager")
 				throw error
 			}
 		}
@@ -62,7 +58,7 @@ extension WatchSessionManager {
 		
 		dispatch_async(dispatch_get_main_queue()) {
 			// make sure to put on the main queue to update UI!
-			print("get something (phone thread)")
+			NSLog("get something (phone thread)")
 		}
 	}
 }

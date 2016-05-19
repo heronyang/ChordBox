@@ -174,8 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				141DEADA1CE9A62F0043B47B /* Watch Extension.entitlements */,
-				141DEAC41CE9618E0043B47B /* InterfaceController.swift */,
 				141DEAC61CE9618E0043B47B /* ExtensionDelegate.swift */,
+				141DEAC41CE9618E0043B47B /* InterfaceController.swift */,
 				141DEAE71CEA01DC0043B47B /* WatchSessionManager.swift */,
 				141DEAC81CE9618E0043B47B /* Assets.xcassets */,
 				141DEACA1CE9618E0043B47B /* Info.plist */,
@@ -553,6 +553,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Watch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.heron.ChordBox.watchkitapp.watchkitextension;
@@ -568,6 +569,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Watch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.heron.ChordBox.watchkitapp.watchkitextension;
@@ -742,6 +744,7 @@
 				141DEAD01CE9618E0043B47B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		141DEAD21CE9618E0043B47B /* Build configuration list for PBXNativeTarget "Watch" */ = {
 			isa = XCConfigurationList;
@@ -750,6 +753,7 @@
 				141DEAD41CE9618E0043B47B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14A14C8E1CE176740043E54E /* Build configuration list for PBXProject "ChordBox" */ = {
 			isa = XCConfigurationList;
