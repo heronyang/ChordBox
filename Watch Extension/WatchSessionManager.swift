@@ -12,7 +12,6 @@ import WatchConnectivity
 
 protocol DataSourceChangedDelegate {
 	func dataSourceDidUpdate(encodedChordProgression: NSData)
-	func dataSourceDidUpdateTest(encodedChordProgression: String)
 }
 
 class WatchSessionManager: NSObject, WCSessionDelegate {
@@ -56,7 +55,7 @@ extension WatchSessionManager {
 	func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
 		
         dispatch_async(dispatch_get_main_queue()) { [weak self] in
-            self?.dataSourceChangedDelegates.forEach { $0.dataSourceDidUpdateTest(applicationContext["encodedChordProgression"] as! String)}
+            self?.dataSourceChangedDelegates.forEach { $0.dataSourceDidUpdate(applicationContext["data"] as! NSData)}
         }
 		
 

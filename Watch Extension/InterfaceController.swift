@@ -42,11 +42,9 @@ class InterfaceController: WKInterfaceController, DataSourceChangedDelegate {
 	// MARK: DataSourceUpdatedDelegate
 	func dataSourceDidUpdate(encodedChordProgression: NSData) {
 		// randomButton.setTitle(chordProgression.description)
-		NSLog("get something here")
+		// NSLog("get something here \(encodedChordProgression.description)")
+		let chordProgression = NSKeyedUnarchiver.unarchiveObjectWithData(encodedChordProgression) as! ChordProgression
+		NSLog("get something here \(chordProgression.description)")
 	}
 	
-	func dataSourceDidUpdateTest(encodedChordProgression: String) {
-		// randomButton.setTitle(chordProgression.description)
-		NSLog("get something here \(encodedChordProgression)")
-	}
 }
