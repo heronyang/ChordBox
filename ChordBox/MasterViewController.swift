@@ -40,8 +40,9 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 	func sendRandomChordProgressionToWatch() {
         do {
 			let encodedChordProgression = NSKeyedArchiver.archivedDataWithRootObject(chordProgressions[1])
-			let oo = NSKeyedUnarchiver.unarchiveObjectWithData(encodedChordProgression) as! ChordProgression
-			NSLog("get oo = \(oo.description), size = \(encodedChordProgression.length)")
+			let decodedChordProgression = NSKeyedUnarchiver.unarchiveObjectWithData(encodedChordProgression) as! ChordProgression
+			NSLog("get decodedChordProgression = \(decodedChordProgression.description)")
+			NSLog(encodedChordProgression.description)
             try WatchSessionManager.sharedManager.updateApplicationContext(["data": encodedChordProgression])
         } catch {
 			NSLog("error")

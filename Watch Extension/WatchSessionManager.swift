@@ -44,6 +44,7 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
 		}
 		NSLog("data source removed")
 	}
+	
 }
 
 // MARK: Application Context
@@ -57,19 +58,6 @@ extension WatchSessionManager {
         dispatch_async(dispatch_get_main_queue()) { [weak self] in
             self?.dataSourceChangedDelegates.forEach { $0.dataSourceDidUpdate(applicationContext["data"] as! NSData)}
         }
-		
-
-		/*
-		dispatch_async(dispatch_get_main_queue()) { [weak self] in
-			NSLog("get something new")
-			self?.dataSourceChangedDelegates.forEach {
-				NSLog("get something")
-				let encodedData: NSData = applicationContext["chordProgression"] as! NSData
-				let chordProgression: ChordProgression = NSKeyedUnarchiver.unarchiveObjectWithData(encodedData) as! ChordProgression
-				$0.dataSourceDidUpdate(chordProgression)
-			}
-		}
-*/
 		
 	}
 }
