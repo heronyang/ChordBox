@@ -77,4 +77,14 @@ extension WatchSessionManager {
         }
 		
 	}
+	
+	func sessionWatchStateDidChange(session: WCSession) {
+		NSLog("session watch state change")
+	}
+	
+	func sessionReachabilityDidChange(session: WCSession) {
+		NSLog("reachability changed")
+	}
+	
+	
 }
