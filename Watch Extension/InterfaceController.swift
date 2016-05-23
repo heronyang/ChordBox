@@ -35,14 +35,18 @@ class InterfaceController: WKInterfaceController, DataSourceChangedDelegate {
     }
 
 	@IBAction func randomButtonOnTapped() {
-		randomButton.setTitle("tapped")
 		NSLog("tapped")
+        do {
+            try WatchSessionManager.sharedManager.updateApplicationContext(["command": "getRandomChordProgression"])
+        } catch {
+			NSLog("error")
+        }
 	}
 	
 	// MARK: DataSourceUpdatedDelegate
-	func dataSourceDidUpdate(encodedChordProgression: NSData) {
-		let chordProgression = NSKeyedUnarchiver.unarchiveObjectWithData(encodedChordProgression) as! ChordProgression
-		NSLog("get something here \(chordProgression.description)")
+	func dataSourceDidUpdate(data: NSString) {
+		// let chordProgression = NSKeyedUnarchiver.unarchiveObjectWithData(encodedChordProgression) as! ChordProgression
+		NSLog("get something here \(data)")
 	}
 	
 }

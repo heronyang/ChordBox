@@ -11,7 +11,7 @@ import Foundation
 import WatchConnectivity
 
 protocol DataSourceChangedDelegate {
-	func dataSourceDidUpdate(encodedChordProgression: NSData)
+	func dataSourceDidUpdate(encodedChordProgression: NSString)
 }
 
 class WatchSessionManager: NSObject, WCSessionDelegate {
@@ -23,11 +23,9 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
 	
 	private var dataSourceChangedDelegates = [DataSourceChangedDelegate]()
 	
-	private let session: WCSession = WCSession.defaultSession()
-	
-	func startSession() {
-		session.delegate = self
-		session.activateSession()
+	private let session: WCSession? = WCSession.isSupported() ? WCSession.defaultSession() : nil
+	private var validSession: WCSession? {
+		return session
 	}
 	
 	func addDataSourceChangedDelegate<T where T: DataSourceChangedDelegate, T: Equatable>(delegate: T) {
@@ -45,6 +43,12 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
 		NSLog("data source removed")
 	}
 	
+	
+	func startSession() {
+		session?.delegate = self
+		session?.activateSession()
+	}
+	
 }
 
 // MARK: Application Context
@@ -52,11 +56,24 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
 // if the data was not sent, it will be replaced
 extension WatchSessionManager {
 	
+	// Sender
+	func updateApplicationContext(applicationContext: [String : AnyObject]) throws {
+		if let session = validSession {
+			do {
+				try session.updateApplicationContext(applicationContext)
+				NSLog("throw context")
+			} catch let error {
+				NSLog("error in update application, WatchSessionManager")
+				throw error
+			}
+		}
+	}
+	
 	// Receiver
 	func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
 		
         dispatch_async(dispatch_get_main_queue()) { [weak self] in
-            self?.dataSourceChangedDelegates.forEach { $0.dataSourceDidUpdate(applicationContext["data"] as! NSData)}
+            self?.dataSourceChangedDelegates.forEach { $0.dataSourceDidUpdate(applicationContext["data"] as! NSString)}
         }
 		
 	}
