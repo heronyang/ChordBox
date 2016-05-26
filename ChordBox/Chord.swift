@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Chord: NSObject, NSCoding {
+class Chord: ChordPlaceHolder {
 	
 	private let rawData: String!
 	private let tonic: RelativeNote!
@@ -16,13 +16,6 @@ class Chord: NSObject, NSCoding {
 	private let inversion: RelativeNote?
 	
 	private let key: String = Configuration.key// TODO: read system variable
-	
-	struct PropertyKey {
-		static let rawDataKey = "rawData"
-		static let tonicKey = "tonic"
-		static let decorationKey = "decoration"
-		static let inversionKey = "inversion"
-	}
 	
 	override var description: String {
 		var buf: String = self.tonic.getAbsoluteNote(key).description
@@ -59,22 +52,6 @@ class Chord: NSObject, NSCoding {
 		print("\(decorationStartIndex) \(decorationEndIndex) \(rawData) \(self.tonic.description) \(self.decoration) \(self.inversion?.description ?? "")")
 	}
 	
-	// MARK: NSCoding
-	func encodeWithCoder(aCoder: NSCoder) {
-		aCoder.encodeObject(rawData, forKey: PropertyKey.rawDataKey)
-		aCoder.encodeObject(tonic, forKey: PropertyKey.tonicKey)
-		aCoder.encodeObject(decoration, forKey: PropertyKey.decorationKey)
-		aCoder.encodeObject(inversion, forKey: PropertyKey.inversionKey)
-	}
-	
-	required convenience init?(coder aDecoder: NSCoder) {
-		let rawData = aDecoder.decodeObjectForKey(PropertyKey.rawDataKey) as! String
-		let tonic = aDecoder.decodeObjectForKey(PropertyKey.tonicKey) as! RelativeNote
-		let decoration = aDecoder.decodeObjectForKey(PropertyKey.decorationKey) as! String
-		let inversion = aDecoder.decodeObjectForKey(PropertyKey.inversionKey) as! RelativeNote?
-		self.init(rawData: rawData, tonic: tonic, decoration: decoration, inversion: inversion)
-	}
-	
 	init?(rawData: String, tonic: RelativeNote, decoration: String, inversion: RelativeNote?) {
 		
 		self.rawData = rawData
@@ -82,7 +59,6 @@ class Chord: NSObject, NSCoding {
 		self.decoration = decoration
 		self.inversion = inversion
 		
-		super.init()
 	}
 	
 }

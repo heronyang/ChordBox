@@ -8,18 +8,12 @@
 
 import Foundation
 
-class RelativeNote: NSObject, NSCoding {
+class RelativeNote: NSObject {
 	
 	let rawData: String
 	
 	let noteNumber: Int
 	let accFlat : String?
-	
-	struct PropertyKey {
-		static let rawDataKey = "rawData"
-		static let noteNumberKey = "noteNumber"
-		static let accFlat = "accFlat"
-	}
 	
 	override var description: String {
 		get {
@@ -60,21 +54,6 @@ class RelativeNote: NSObject, NSCoding {
 		
 		self.accFlat = Helper.detectAccFlat(rawData)
 
-	}
-	
-	// MARK: NSCoding
-	
-	func encodeWithCoder(aCoder: NSCoder) {
-		aCoder.encodeObject(rawData, forKey: PropertyKey.rawDataKey)
-		aCoder.encodeObject(noteNumber, forKey: PropertyKey.noteNumberKey)
-		aCoder.encodeObject(accFlat, forKey: PropertyKey.accFlat)
-	}
-	
-	required convenience init?(coder aDecoder: NSCoder) {
-		let rawData = aDecoder.decodeObjectForKey(PropertyKey.rawDataKey) as! String
-		let noteNumber = aDecoder.decodeObjectForKey(PropertyKey.noteNumberKey) as! Int
-		let accFlat = aDecoder.decodeObjectForKey(PropertyKey.accFlat) as! String?
-		self.init(rawData: rawData, noteNumber: noteNumber, accFlat: accFlat)
 	}
 	
 	init?(rawData: String, noteNumber: Int, accFlat: String?) {

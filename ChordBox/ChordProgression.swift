@@ -8,22 +8,16 @@
 
 import Foundation
 
-class ChordProgression: NSObject, NSCoding {
+class ChordProgression: NSObject {
 	
 	private let amount: Int
 	private let unit: Float
-	private var chords = [Chord]()
-	
-	struct PropertyKey {
-		static let amountKey = "amount"
-		static let unitKey = "unit"
-		static let chordsKey = "chords"
-	}
+	private var chordPlaceHolders = [ChordPlaceHolder]()
 	
 	override var description: String {
 		var d = ""
-		for chord:Chord in chords {
-			d += chord.description + " "
+		for chordPlaceHolder:ChordPlaceHolder in chordPlaceHolders {
+			d += chordPlaceHolder.description + " "
 		}
 		return d
 	}
@@ -43,35 +37,15 @@ class ChordProgression: NSObject, NSCoding {
 			}
 			
 			if Helper.isValidChordData(rawDataChord) {
-				chords.append(Chord(rawData: rawDataChord))
+				chordPlaceHolders.append(Chord(rawData: rawDataChord))
+			}
+			
+			if Helper.isContinueSign(rawDataChord) {
+				chordPlaceHolders.append(SucceedingChord())
 			}
 			
 		}
 		
-	}
-	
-	// MARK: NSCoding
-	
-	func encodeWithCoder(aCoder: NSCoder) {
-		aCoder.encodeObject(amount, forKey: PropertyKey.amountKey)
-		aCoder.encodeObject(unit, forKey: PropertyKey.unitKey)
-		aCoder.encodeObject(chords, forKey: PropertyKey.chordsKey)
-	}
-	
-	required convenience init?(coder aDecoder: NSCoder) {
-		let amount = aDecoder.decodeObjectForKey(PropertyKey.amountKey) as! Int
-		let unit = aDecoder.decodeObjectForKey(PropertyKey.unitKey) as! Float
-		let chords = aDecoder.decodeObjectForKey(PropertyKey.chordsKey) as! [Chord]
-		
-		self.init(amount: amount, unit: unit, chords: chords)
-	}
-	
-	init?(amount: Int, unit: Float, chords: [Chord]) {
-		self.amount = amount
-		self.unit = unit
-		self.chords = chords
-		
-		super.init()
 	}
 	
 }
