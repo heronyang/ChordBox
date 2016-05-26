@@ -24,7 +24,13 @@ class DetailViewController: UIViewController {
 			var index = 0
 			for view in self.view.subviews as [UIView] {
 				if let label = view as? UILabel {
-					label.text = "\(getChordDescriptionAtIndex(index, chordProgression: chordProgression))"
+					let labelText = "\(getChordDescriptionAtIndex(index, chordProgression: chordProgression))"
+					if labelText == "" {
+						label.hidden = true
+					} else {
+						label.hidden = false
+						label.text = labelText
+					}
 					index += 1
 				}
 			}

@@ -24,7 +24,7 @@ class MasterViewController: UITableViewController, CallbackDelegate, WCSessionDe
 		self.navigationItem.title = "All"
 		
 		let infoButton = UIBarButtonItem(title: "☰", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(showSettingPage(_:)))
-		let playButton = UIBarButtonItem(title: "Random ♫", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(randomSelect(_:)))
+		let playButton = UIBarButtonItem(title: "⚂⚄⚁", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(randomSelect(_:)))
 		
 		self.navigationItem.leftBarButtonItem = infoButton
 		self.navigationItem.rightBarButtonItem = playButton
