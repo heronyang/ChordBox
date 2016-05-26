@@ -13,20 +13,45 @@ class DetailViewController: UIViewController {
 	@IBOutlet weak var detailDescriptionLabel: UILabel!
 
 
-	var detailItem: ChordProgression? {
+	var chordProgression: ChordProgression? {
 		didSet {
-		    // Update the view.
 		    self.configureView()
 		}
 	}
 
 	func configureView() {
-		// Update the user interface for the detail item.
-		if let detail = self.detailItem {
-		    if let label = self.detailDescriptionLabel {
-		        label.text = detail.description
-		    }
+		if let chordProgression = self.chordProgression {
+			var index = 0
+			for view in self.view.subviews as [UIView] {
+				if let label = view as? UILabel {
+					label.text = "\(getChordDescriptionAtIndex(index, chordProgression: chordProgression))"
+					index += 1
+				}
+			}
 		}
+	}
+	
+	func getChordDescriptionAtIndex(index: Int, chordProgression: ChordProgression) -> String {
+		let amount = chordProgression.amount
+		let unit = chordProgression.unit
+		
+		if amount == 4 && unit == 1 {
+			if index >= 4 && index <= 7 {
+				return chordProgression.chordPlaceHolders[index-4].description
+			}
+		}
+		
+		if (amount == 4 && unit == 0.5) || (amount == 8 && unit == 1){
+			if index >= 4 && index <= 11 {
+				return chordProgression.chordPlaceHolders[index-4].description
+			}
+		}
+		
+		if (amount == 8 && unit == 0.5) {
+			return chordProgression.chordPlaceHolders[index].description
+		}
+		
+		return ""
 	}
 
 	override func viewDidLoad() {

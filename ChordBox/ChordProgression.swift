@@ -10,9 +10,9 @@ import Foundation
 
 class ChordProgression: NSObject {
 	
-	private let amount: Int
-	private let unit: Float
-	private var chordPlaceHolders = [ChordPlaceHolder]()
+	let amount: Int
+	let unit: Float
+	var chordPlaceHolders = [ChordPlaceHolder]()
 	
 	override var description: String {
 		var d = ""
