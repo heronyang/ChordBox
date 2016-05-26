@@ -31,6 +31,6 @@ struct Constants {
 		"A#/Bb": ["Bb", "C", "D", "Eb", "F", "G", "A", "Bb"],
 		"B": ["B", "C#", "D#", "E", "F#", "G#", "A#"]
 	]
-	static let printableAccFlatSymbols = ["#": "♯", "b": "♭", "##": "𝄪", "bb": "𝄫"]
+	static let printableAccFlatSymbols = ["#": "#", "b": "b", "##": "𝄪", "bb": "𝄫"]
 	
 }
