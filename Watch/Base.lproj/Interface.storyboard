@@ -10,18 +10,22 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target">
                     <items>
-                        <button width="1" alignment="left" title="Button" id="Clg-6G-Mek">
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <label width="136" height="106.5" alignment="left" text="Open ChordBox on iOS" textAlignment="center" numberOfLines="4" id="X5f-gp-rZO">
+                            <color key="textColor" red="0.46658427556975357" green="1" blue="0.76827830547750309" alpha="1" colorSpace="calibratedRGB"/>
+                            <variation key="device=watch42mm" height="129.5" width="154"/>
+                        </label>
+                        <button width="1" alignment="left" title="Next" id="Y2y-l7-SIJ">
                             <connections>
-                                <action selector="randomButtonOnTapped" destination="AgC-eL-Hgc" id="GmE-d7-gtF"/>
+                                <action selector="randomButtonOnTapped" destination="AgC-eL-Hgc" id="T2V-2s-A34"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
-                        <outlet property="randomButton" destination="Clg-6G-Mek" id="MbF-5W-PHa"/>
+                        <outlet property="mainLabel" destination="X5f-gp-rZO" id="Kjh-7h-lfv"/>
                     </connections>
                 </controller>
             </objects>
+            <point key="canvasLocation" x="324.30769230769232" y="252.38461538461542"/>
         </scene>
     </scenes>
 </document>

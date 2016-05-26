@@ -14,11 +14,11 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 	
 	var watchSession : WCSession?
 	
-	@IBOutlet var randomButton: WKInterfaceButton!
+	@IBOutlet var mainLabel: WKInterfaceLabel!
 	
 	func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]){
 		let message : String = applicationContext["message"] as! String
-		randomButton.setTitle(message)
+		mainLabel.setText(message)
 	}
 	
     override func awakeWithContext(context: AnyObject?) {
