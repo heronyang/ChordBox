@@ -159,7 +159,7 @@ class MasterViewController: UITableViewController, CallbackDelegate, WCSessionDe
 		cell.textLabel!.text = chordProgression.description
 		
 		let bgColorView = UIView()
-		bgColorView.backgroundColor = Helper.UIColorFromRGB(0x57B98D)
+		bgColorView.backgroundColor = Helper.UIColorFromRGB(Constants.themeColor)
 		cell.selectedBackgroundView = bgColorView
 		
 		return cell

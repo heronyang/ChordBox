@@ -148,7 +148,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="♪" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2d-gQ-Caz">
                                 <rect key="frame" x="20" y="336" width="134" height="124"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.3411764705882353" green="0.72549019607843135" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.34103331619999999" green="0.72726041669999997" blue="0.55464041860000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -162,7 +162,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="♫" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keo-qv-AgE">
                                 <rect key="frame" x="162" y="336" width="134" height="124"/>
-                                <color key="backgroundColor" red="0.3397861653" green="0.72460084219999998" blue="0.55261211139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.3411764705882353" green="0.72549019607843135" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.34103331619999999" green="0.72726041669999997" blue="0.55464041860000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

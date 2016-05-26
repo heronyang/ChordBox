@@ -10,6 +10,8 @@ import Foundation
 
 struct Constants {
 	
+	static let themeColor:UInt = 0x57B98D
+	
 	static let noteRegex = "(#|b)?[1-7]"
 	static let noteNumberRegex = "[1-7]"
 	static let noteKeyRegex = "[A-G]"
