@@ -8,11 +8,18 @@
 
 import WatchKit
 import Foundation
+import WatchConnectivity
 
-
-class InterfaceController: WKInterfaceController, DataSourceChangedDelegate {
+class InterfaceController: WKInterfaceController, WCSessionDelegate {
+	
+	var watchSession : WCSession?
 	
 	@IBOutlet var randomButton: WKInterfaceButton!
+	
+	func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]){
+		let message : String = applicationContext["message"] as! String
+		randomButton.setTitle(message)
+	}
 	
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -22,32 +29,42 @@ class InterfaceController: WKInterfaceController, DataSourceChangedDelegate {
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
-		WatchSessionManager.sharedManager.addDataSourceChangedDelegate(self)
-		NSLog("will deactivete")
         super.willActivate()
+		
+		NSLog("will deactivete")
+		if(WCSession.isSupported()){
+			watchSession = WCSession.defaultSession()
+			// Add self as a delegate of the session so we can handle messages
+			watchSession!.delegate = self
+			watchSession!.activateSession()
+		}
+		
     }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
-		WatchSessionManager.sharedManager.removeDataSourceChangedDelegate(self)
 		NSLog("did deactivete")
         super.didDeactivate()
     }
 
 	@IBAction func randomButtonOnTapped() {
 		NSLog("tapped")
-        do {
-            try WatchSessionManager.sharedManager.updateApplicationContext(["command": "getRandomChordProgression"])
-        } catch {
-			NSLog("error")
-        }
+		sendRandomMessage()
 	}
 	
-	// MARK: DataSourceUpdatedDelegate
-	func dataSourceDidUpdate(data: NSString) {
-		// let chordProgression = NSKeyedUnarchiver.unarchiveObjectWithData(encodedChordProgression) as! ChordProgression
-		randomButton.setTitle(data as String!)
-		NSLog("get something here \(data)")
+	func sendRandomMessage() {
+		
+		NSLog("session status \(watchSession?.reachable), \(watchSession?.activationState)")
+		
+		if let message : String = NSDate().description {
+			do {
+				try watchSession?.updateApplicationContext(
+					["message" : message]
+				)
+			} catch let error as NSError {
+				NSLog("Updating the context failed: " + error.localizedDescription)
+			}
+		}
 	}
 	
 }

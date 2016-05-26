@@ -8,8 +8,11 @@
 
 import UIKit
 import SwiftCSV
+import WatchConnectivity
 
-class MasterViewController: UITableViewController, CallbackDelegate {
+class MasterViewController: UITableViewController, CallbackDelegate, WCSessionDelegate {
+	
+    var watchSession : WCSession?
 
 	var detailViewController: DetailViewController? = nil
 	private var chordProgressions = [ChordProgression]()
@@ -33,17 +36,29 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 		
 		loadDataFromFile()
 		
-		sendRandomChordProgressionToWatch()
+		setupWatchConnectivity()
 		
 	}
 	
+	func setupWatchConnectivity() {
+		if(WCSession.isSupported()){
+			watchSession = WCSession.defaultSession()
+			watchSession!.delegate = self
+			watchSession!.activateSession()
+		} else {
+			NSLog("WCSession is not supported")
+		}
+	}
+	
 	func sendRandomChordProgressionToWatch() {
-        do {
-			let chordProgressionRaw = chordProgressions[1].description
-            try WatchSessionManager.sharedManager.updateApplicationContext(["data": chordProgressionRaw])
-        } catch {
-			NSLog("error")
-        }
+		let message = chordProgressions[getRandomRowNumber()].description
+		do {
+			try watchSession?.updateApplicationContext(
+				["message" : message]
+			)
+		} catch let error as NSError {
+			NSLog("Updating the context failed: " + error.localizedDescription)
+		}
 	}
 	
 	override func viewWillAppear(animated: Bool) {
@@ -67,6 +82,7 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 	}
 	
 	func parseRawDataToLocal(rawData: [Dictionary<String, String>]) {
+		
 		for rawDataChordProgression: Dictionary<String, String> in rawData {
 			
 			let newChordProgression = ChordProgression(rawDataChordProgression: rawDataChordProgression)
@@ -151,6 +167,13 @@ class MasterViewController: UITableViewController, CallbackDelegate {
 	
 	func reloadTable() {
 		self.tableView.reloadData()
+	}
+	
+	
+	func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]){
+		let message : String = applicationContext["message"] as! String
+		NSLog(message)
+		sendRandomChordProgressionToWatch()
 	}
 
 }
