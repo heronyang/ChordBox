@@ -22,6 +22,21 @@ class ChordProgression: NSObject {
 		return d
 	}
 	
+	var descriptionForWatch: String {
+		var d = ""
+		var count = 0
+		for chordPlaceHolder:ChordPlaceHolder in chordPlaceHolders {
+			d += chordPlaceHolder.description
+			if count % 4 == 3 {
+				d += "\n"
+			} else {
+				d += " "
+			}
+			count += 1
+		}
+		return d
+	}
+	
 	init(rawDataChordProgression: Dictionary<String, String>) {
 		
 		amount = Int(rawDataChordProgression["amount"]!)!

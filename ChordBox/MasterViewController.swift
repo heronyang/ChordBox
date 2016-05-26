@@ -51,7 +51,7 @@ class MasterViewController: UITableViewController, CallbackDelegate, WCSessionDe
 	}
 	
 	func sendRandomChordProgressionToWatch() {
-		let message = chordProgressions[getRandomRowNumber()].description
+		let message = chordProgressions[getRandomRowNumber()].descriptionForWatch
 		do {
 			try watchSession?.updateApplicationContext(
 				["message" : message]

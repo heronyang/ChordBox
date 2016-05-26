@@ -10,7 +10,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target">
                     <items>
-                        <label width="136" height="106.5" alignment="left" text="Open ChordBox on iOS" textAlignment="center" numberOfLines="4" id="X5f-gp-rZO">
+                        <label width="136" height="106.5" alignment="left" text="Open ChordBox on iOS" textAlignment="center" numberOfLines="6" id="X5f-gp-rZO">
                             <color key="textColor" red="0.46658427556975357" green="1" blue="0.76827830547750309" alpha="1" colorSpace="calibratedRGB"/>
                             <variation key="device=watch42mm" height="129.5" width="154"/>
                         </label>
