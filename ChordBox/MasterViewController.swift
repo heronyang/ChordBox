@@ -158,6 +158,10 @@ class MasterViewController: UITableViewController, CallbackDelegate, WCSessionDe
 		let chordProgression = chordProgressions[indexPath.row]
 		cell.textLabel!.text = chordProgression.description
 		
+		let bgColorView = UIView()
+		bgColorView.backgroundColor = Helper.UIColorFromRGB(0x57B98D)
+		cell.selectedBackgroundView = bgColorView
+		
 		return cell
 	}
 
@@ -168,7 +172,6 @@ class MasterViewController: UITableViewController, CallbackDelegate, WCSessionDe
 	func reloadTable() {
 		self.tableView.reloadData()
 	}
-	
 	
 	func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]){
 		let message : String = applicationContext["message"] as! String
