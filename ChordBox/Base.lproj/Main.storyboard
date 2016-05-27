@@ -430,44 +430,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQW-eg-lYb">
-                                                    <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="jRK-xL-CJQ" id="niq-XE-Lsh"/>
-                                                        <outlet property="delegate" destination="jRK-xL-CJQ" id="RB7-du-J9a"/>
-                                                    </connections>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wn-yo-xkm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="170"/>
                                                 </pickerView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="LQW-eg-lYb" firstAttribute="leading" secondItem="R5R-lO-FKe" secondAttribute="leading" id="5vC-fo-oAV"/>
-                                                <constraint firstItem="LQW-eg-lYb" firstAttribute="top" secondItem="R5R-lO-FKe" secondAttribute="top" id="Kkp-jf-p9i"/>
-                                                <constraint firstAttribute="trailing" secondItem="LQW-eg-lYb" secondAttribute="trailing" id="qAN-Ti-eG8"/>
-                                                <constraint firstAttribute="bottom" secondItem="LQW-eg-lYb" secondAttribute="bottom" id="skg-L9-OSI">
-                                                    <variation key="widthClass=compact" constant="-15"/>
-                                                </constraint>
+                                                <constraint firstAttribute="trailing" secondItem="5wn-yo-xkm" secondAttribute="trailing" id="0yi-Mx-QFV"/>
+                                                <constraint firstItem="5wn-yo-xkm" firstAttribute="leading" secondItem="R5R-lO-FKe" secondAttribute="leading" id="3H3-n8-imz"/>
+                                                <constraint firstAttribute="bottom" secondItem="5wn-yo-xkm" secondAttribute="bottom" id="BMn-ss-9f4"/>
+                                                <constraint firstItem="5wn-yo-xkm" firstAttribute="top" secondItem="R5R-lO-FKe" secondAttribute="top" id="bao-14-eW4"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="LQW-eg-lYb"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <exclude reference="5vC-fo-oAV"/>
-                                                    <exclude reference="Kkp-jf-p9i"/>
-                                                    <exclude reference="qAN-Ti-eG8"/>
-                                                    <exclude reference="skg-L9-OSI"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="LQW-eg-lYb"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <include reference="5vC-fo-oAV"/>
-                                                    <include reference="Kkp-jf-p9i"/>
-                                                    <include reference="qAN-Ti-eG8"/>
-                                                    <include reference="skg-L9-OSI"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -580,12 +552,11 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="jRK-xL-CJQ" id="Lj1-UK-4DG"/>
+                            <outlet property="dataSource" destination="jRK-xL-CJQ" id="zkU-t6-868"/>
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="pickerView" destination="LQW-eg-lYb" id="RX1-sj-fJf"/>
-                        <outlet property="view" destination="LQW-eg-lYb" id="73v-lU-42f"/>
+                        <outlet property="pickerView" destination="5wn-yo-xkm" id="ZW3-Gg-AA0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVY-6a-Wd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
