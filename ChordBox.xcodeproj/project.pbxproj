@@ -44,6 +44,7 @@
 		14A14CA01CE176740043E54E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A14C9F1CE176740043E54E /* Assets.xcassets */; };
 		14A14CA31CE176740043E54E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A14CA11CE176740043E54E /* LaunchScreen.storyboard */; };
 		14BA0A2A1CE45841008D7A51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0A291CE45841008D7A51 /* Constants.swift */; };
+		14C213C51CF871950058D553 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C213C41CF871950058D553 /* Launch Screen.storyboard */; };
 		5AE90E923A61F7F9408B9DDD /* Pods_ChordBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C9C8FAD0719D5DCE538783 /* Pods_ChordBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		14A14CA41CE176740043E54E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14BA0A291CE45841008D7A51 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		14C213C31CF744C80058D553 /* Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Watch.entitlements; sourceTree = "<group>"; };
+		14C213C41CF871950058D553 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A085F76B0196DA6D274AD4BD /* Pods-ChordBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChordBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChordBox/Pods-ChordBox.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C9C8FAD0719D5DCE538783 /* Pods_ChordBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChordBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8987BE43A5F6AB41EE3C415 /* Pods-ChordBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChordBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChordBox/Pods-ChordBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		14A14C8A1CE176740043E54E = {
 			isa = PBXGroup;
 			children = (
+				14C213C41CF871950058D553 /* Launch Screen.storyboard */,
 				14A14C951CE176740043E54E /* ChordBox */,
 				141DEAB41CE9618E0043B47B /* Watch */,
 				141DEAC31CE9618E0043B47B /* Watch Extension */,
@@ -427,6 +430,7 @@
 				14A14CA31CE176740043E54E /* LaunchScreen.storyboard in Resources */,
 				14302FA61CE1B5D900627562 /* chordData.csv in Resources */,
 				14A14CA01CE176740043E54E /* Assets.xcassets in Resources */,
+				14C213C51CF871950058D553 /* Launch Screen.storyboard in Resources */,
 				14A14C9E1CE176740043E54E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +591,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -702,7 +707,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -748,7 +754,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

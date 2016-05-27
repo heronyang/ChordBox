@@ -174,8 +174,6 @@ class MasterViewController: UITableViewController, CallbackDelegate, WCSessionDe
 	}
 	
 	func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]){
-		let message : String = applicationContext["message"] as! String
-		NSLog(message)
 		sendRandomChordProgressionToWatch()
 	}
 

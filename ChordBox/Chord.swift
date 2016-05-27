@@ -49,7 +49,6 @@ class Chord: ChordPlaceHolder {
 		
 		self.decoration = rawData[rawData.startIndex.advancedBy(decorationStartIndex) ..< rawData.startIndex.advancedBy(decorationEndIndex)]
 		
-		print("\(decorationStartIndex) \(decorationEndIndex) \(rawData) \(self.tonic.description) \(self.decoration) \(self.inversion?.description ?? "")")
 	}
 	
 	init?(rawData: String, tonic: RelativeNote, decoration: String, inversion: RelativeNote?) {
